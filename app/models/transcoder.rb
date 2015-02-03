@@ -19,11 +19,21 @@ class Transcoder
         thumb_opts = nil
       end
 
+      if job.notifications.present?
+        @urls = []
+        for notification in job.notifications
+          @urls << notification.value
+        end
+      else
+        @urls = nil
+      end
+
       {
         'source_file' => job.source_file,
         'destination_file' => job.destination_file,
         'encoder_options' => job.preset.parameters,
-        'thumbnail_options' => thumb_opts
+        'thumbnail_options' => thumb_opts,
+        'callback_urls' => @urls
       }.to_json
     end
 
