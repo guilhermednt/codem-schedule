@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.1.1'
 
 gem 'mysql2'
+gem 'pg'
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'will_paginate'
